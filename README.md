@@ -1,2 +1,4 @@
 # PageRank-Algorithm
-JPWP university project
+
+
+Search engine simulator based on PageRank Algorithm

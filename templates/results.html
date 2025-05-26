@@ -40,12 +40,29 @@
     .btn-search { background: #7fc4f3; color: white; }
     .btn-create { background: #6ef87e; color: white; }
     .btn-link { background: #f35e5e; color: white; }
-    .results a {
-      display: block;
+    .results {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .result-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+    .result-line a {
       color: purple;
-      margin-top: 10px;
       text-decoration: none;
     }
+    .rank {
+      font-size: 0.9em;
+      color: #555;
+    }
+
   </style>
 </head>
 <body>
@@ -60,7 +77,10 @@
 
   <div class="results">
     {% for title, rank in results %}
-      <a href="{{ url_for('page', title=title) }}">{{ title }}</a>
+      <div class="result-line">
+        <a href="{{ url_for('page', title=title) }}">{{ title }}</a>
+        <span class="rank">{{ (rank * 100) | round(2) }}%</span>
+      </div>
     {% endfor %}
   </div>
 </div>

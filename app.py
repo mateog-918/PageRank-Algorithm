@@ -28,6 +28,7 @@ def add_page_route():
     title = request.form["title"]
     text = request.form["text"]
     add_page(title, text)
+    compute_pagerank()
     return redirect(url_for("search"))
 
 @app.route("/link")
@@ -39,6 +40,7 @@ def add_link_route():
     src = request.form["source"]
     dst = request.form["destination"]
     add_link(src, dst)
+    compute_pagerank()
     return redirect(url_for("search"))
 
 @app.route("/recalculate")

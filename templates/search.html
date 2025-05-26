@@ -1,0 +1,58 @@
+<!-- templates/search.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type="text"] {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    .btn {
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn-search { background: #7fc4f3; color: white; }
+    .btn-create { background: #6ef87e; color: white; }
+    .btn-link { background: #f35e5e; color: white; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>PageRank Search</h1>
+  <form action="/results" method="get" class="search-bar">
+    <input type="text" name="q" placeholder="Search...">
+    <button class="btn btn-search" type="submit">Search</button>
+    <a href="/create" class="btn btn-create">Create Page</a>
+    <a href="/link" class="btn btn-link">Add link</a>
+  </form>
+</div>
+</body>
+</html>

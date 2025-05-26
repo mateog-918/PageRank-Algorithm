@@ -1,0 +1,68 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    input[type="text"] {
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      width: 300px;
+    }
+    .btn {
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn-search { background: #7fc4f3; color: white; }
+    .btn-create { background: #6ef87e; color: white; }
+    .btn-link { background: #f35e5e; color: white; }
+    .results a {
+      display: block;
+      color: purple;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>PageRank Search</h1>
+  <form action="/results" method="get" class="search-bar">
+    <input type="text" name="q" value="{{ query }}">
+    <button class="btn btn-search" type="submit">Search</button>
+    <a href="/create" class="btn btn-create">Create Page</a>
+    <a href="/link" class="btn btn-link">Add link</a>
+  </form>
+
+  <div class="results">
+    {% for title, rank in results %}
+      <a href="{{ url_for('page', title=title) }}">{{ title }}</a>
+    {% endfor %}
+  </div>
+</div>
+</body>
+</html>
